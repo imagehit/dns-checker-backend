@@ -1,0 +1,1 @@
+export const COMMON_SELECTORS = ['google', 'selector1', 'selector2', 'default', 'dkim', 'mail', 'k1', 'smtp'];

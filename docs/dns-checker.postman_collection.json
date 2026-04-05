@@ -1,0 +1,477 @@
+{
+	"info": {
+		"name": "DNS Checker API",
+		"description": "Postman collection for the DNS Checker Backend API.\n\nBase URL: http://localhost:3000\nAll DNS check endpoints are under /api/v1/check/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "domain",
+			"value": "google.com",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Health",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/health",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Fetch All Records",
+			"item": [
+				{
+					"name": "All Records",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\",\n\t\"dkimSelector\": \"google\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"all"
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Standard DNS Records",
+			"item": [
+				{
+					"name": "A Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/a",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"a"
+							]
+						}
+					}
+				},
+				{
+					"name": "AAAA Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/aaaa",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"aaaa"
+							]
+						}
+					}
+				},
+				{
+					"name": "MX Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/mx",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"mx"
+							]
+						}
+					}
+				},
+				{
+					"name": "NS Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/ns",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"ns"
+							]
+						}
+					}
+				},
+				{
+					"name": "CNAME Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/cname",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"cname"
+							]
+						}
+					}
+				},
+				{
+					"name": "SOA Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/soa",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"soa"
+							]
+						}
+					}
+				},
+				{
+					"name": "TXT Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/txt",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"txt"
+							]
+						}
+					}
+				},
+				{
+					"name": "CAA Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/caa",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"caa"
+							]
+						}
+					}
+				},
+				{
+					"name": "SRV Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/srv",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"srv"
+							]
+						}
+					}
+				},
+				{
+					"name": "PTR Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/ptr",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"ptr"
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Email Records",
+			"item": [
+				{
+					"name": "SPF Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/spf",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"spf"
+							]
+						}
+					}
+				},
+				{
+					"name": "DKIM Record (with selector)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\",\n\t\"selector\": \"google\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/dkim",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"dkim"
+							]
+						}
+					}
+				},
+				{
+					"name": "DKIM Record (auto-detect selectors)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/dkim",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"dkim"
+							]
+						}
+					}
+				},
+				{
+					"name": "DMARC Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"domain\": \"{{domain}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/check/dmarc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"check",
+								"dmarc"
+							]
+						}
+					}
+				}
+			]
+		}
+	]
+}
