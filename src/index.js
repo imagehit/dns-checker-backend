@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors'
 import config from './configuration/config.js'
 import logger from './utils/logger.js'
 
@@ -6,6 +7,12 @@ import logger from './utils/logger.js'
 const app = express();
 
 // middleware
+app.use(cors({
+  origin: config.corsOrigin,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
