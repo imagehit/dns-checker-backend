@@ -152,7 +152,7 @@ const checkSPF = async (domain) => {
         return {
             found: true,
             spfRecord,
-            values: spfRecord.split(" ")
+            values: spfRecord.split(/\s+/).filter(Boolean)
         }
     } catch (error) {
         logger.error("SPF check failed", error);
@@ -182,7 +182,7 @@ const checkDMARC = async (domain) => {
         return {
             found: true,
             dmarcRecord,
-            values: dmarcRecord.split(" ")
+            values: dmarcRecord.split(';').map(v => v.trim()).filter(Boolean)
         }
     } catch (error) {
         logger.error("DMARC check failed", error);
@@ -207,7 +207,7 @@ const checkDKIM = async (domain, selector) => {
                 return { found: false, selector, record: null, message: "No DKIM record found" };
             }
 
-            return { found: true, selector, record: dkimRecord };
+            return { found: true, selector, record: dkimRecord, values: dkimRecord.split(';').map(v => v.trim()).filter(Boolean) };
         }
 
         // No selector provided — try all common selectors
@@ -220,7 +220,7 @@ const checkDKIM = async (domain, selector) => {
                     .flat()
                     .find(r => r.startsWith('v=DKIM1') || r.includes('p='));
 
-                return dkimRecord ? { selector: sel, record: dkimRecord } : null;
+                return dkimRecord ? { selector: sel, record: dkimRecord, values: dkimRecord.split(';').map(v => v.trim()).filter(Boolean) } : null;
             })
         );
 
